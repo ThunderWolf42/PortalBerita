@@ -26,6 +26,8 @@ class AdminBeritaPanelProvider extends PanelProvider
             ->default()
             ->id('adminBerita')
             ->path('adminBerita')
+            ->registration()
+            ->passwordReset()
             ->login()
             ->colors([
                 'primary' => Color::Amber,
@@ -53,6 +55,10 @@ class AdminBeritaPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+
+            ->plugins([
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
             ]);
     }
 }

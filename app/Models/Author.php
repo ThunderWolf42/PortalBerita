@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use illuminate\Support\Str;
+use Spatie\Permission\Traits\HasRoles;
 class Author extends Model
 {
-    use HasFactory , SoftDeletes;
+    use HasFactory , SoftDeletes, HasRoles;
 
 
     protected $fillable = [
