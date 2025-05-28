@@ -34,6 +34,7 @@ class UserResource extends Resource
                     ->maxLength(255),
                     Select::make('roles')
                     ->relationship('roles', 'name'),
+                    -
                 Forms\Components\TextInput::make('occupation')
                     ->required()
                     ->maxLength(255),

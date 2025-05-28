@@ -38,8 +38,8 @@ class ArticleNewsResource extends Resource
                     ->image()
                     ->required(),
 
-                Forms\Components\Select::make('author_id')
-                    ->relationship('author', 'name')
+                Forms\Components\Select::make('user_id')
+                    ->relationship('user', 'name')
                     ->searchable()
                     ->preload()
                     ->required(),
@@ -73,7 +73,7 @@ class ArticleNewsResource extends Resource
                     ]
                     ),
 
-                    
+
 
             ]);
     }

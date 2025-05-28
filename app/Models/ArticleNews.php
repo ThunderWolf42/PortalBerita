@@ -33,9 +33,9 @@ class ArticleNews extends Model
         return $this->belongsTo(Category::class , 'category_id');
     }
 
-    public function author():BelongsTo
+    public function user():BelongsTo
     {
-        return $this->belongsTo(Author::class , 'user_id');
+        return $this->belongsTo(User::class , 'user_id');
     }
 
 }

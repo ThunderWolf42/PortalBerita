@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArticleNews;
-use App\Models\Author;
+
 use App\Models\BannerAdvertisement;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -26,7 +27,7 @@ class FrontController extends Controller
             ->inRandomOrder()
             ->get();
 
-        $authors = Author::all();
+        $users = User::all();
 
         $bannerAds = BannerAdvertisement::where('is_active', 'active')
             ->where('type', 'banner')
@@ -102,7 +103,7 @@ class FrontController extends Controller
             'business_featured_articles',
             'categories',
             'articles',
-            'authors',
+            'users',
             'featured_articles',
             'bannerAds'));
     }
@@ -117,14 +118,14 @@ class FrontController extends Controller
         return view('front.category', compact('category', 'categories', 'bannerAds'));
     }
 
-    public function author (Author $author){ // menggunakan teknik model binding untuk menampilkan data per author
+    public function user (User $user){ // menggunakan teknik model binding untuk menampilkan data per user
         $bannerAds = BannerAdvertisement::where('is_active', 'active')
             ->where('type', 'banner')
             ->inRandomOrder()
             // ->take(1)
             ->first();
         $categories= Category::all();
-        return view('front.author', compact('author', 'categories', 'bannerAds'));
+        return view('front.user', compact('user', 'categories', 'bannerAds'));
     }
 
     public function search(Request $request)
@@ -138,7 +139,7 @@ class FrontController extends Controller
 
         $keyword = $request->keyword;
 
-        $articles = ArticleNews::with('category', 'author')
+        $articles = ArticleNews::with('category', 'user')
             ->where('name', 'like', '%' . $keyword . '%')->paginate(6);
 
             return view('front.search', compact('articles', 'categories', 'keyword'));
