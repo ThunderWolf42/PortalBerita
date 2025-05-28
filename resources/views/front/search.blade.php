@@ -57,7 +57,7 @@
 					<div class="thumbnail-container h-[200px] relative rounded-[20px] overflow-hidden">
 						<div
 							class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
-							<p class="text-xs leading-[18px] font-bold">{{$article->author->name}}</p>
+							<p class="text-xs leading-[18px] font-bold">{{$article->user->name}}</p>
 						</div>
 						<img src="{{asset(Storage::url($article->thumbnail))}}" alt="thumbnail photo"
 							class="w-full h-full object-cover" />

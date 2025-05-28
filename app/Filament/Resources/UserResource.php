@@ -45,7 +45,16 @@ class UserResource extends Resource
                     ->enableOpen()
                     ->enableDownload()
                     ->preserveFilenames()
-                    ->maxSize(1024)
+                    ->maxSize(1024),
+                //form untuk password
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->required()
+                    ->minLength(8)
+                    ->maxLength(255)
+                    ->dehydrateStateUsing(fn ($state) => bcrypt($state))
+                    ->visibleOn('create')
+                    ->label('Password'),
             ])->columns
             (2)
             ->columns([

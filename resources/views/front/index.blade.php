@@ -84,15 +84,15 @@
 				</h2>
 			</div>
 			<div class="grid grid-cols-6 gap-[30px]">
-                @forelse ($authors as $author)
-                <a href="{{route('front.author', $author->slug)}}" class="card-authors">
+                @forelse ($users as $user)
+                <a href="{{route('front.author', $user->slug)}}" class="card-authors">
 					<div class="rounded-[20px] border border-[#EEF0F7] p-[26px_20px] flex flex-col items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 						<div class="w-[70px] h-[70px] flex shrink-0 rounded-full overflow-hidden">
-							<img src="{{Storage::url($author->avatar)}}" class="object-cover w-full h-full" alt="avatar" />
+							<img src="{{Storage::url($user->avatar)}}" class="object-cover w-full h-full" alt="avatar" />
 						</div>
 						<div class="flex flex-col gap-1 text-center">
-							<p class="font-semibold">{{$author->name}}</p>
-							<p class="text-sm leading-[21px] text-[#A3A6AE]">{{$author->news->count()}} News</p>
+							<p class="font-semibold">{{$user->name}}</p>
+							<p class="text-sm leading-[21px] text-[#A3A6AE]">{{$user->news->count()}} News</p>
 						</div>
 					</div>
 				</a>

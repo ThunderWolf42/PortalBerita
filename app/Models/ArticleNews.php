@@ -16,7 +16,7 @@ class ArticleNews extends Model
         'thumbnail',
         'content',
         'category_id',
-        'author_id',
+        'user_id',
         'status',
         'is_featured',
     ];
@@ -35,7 +35,7 @@ class ArticleNews extends Model
 
     public function author():BelongsTo
     {
-        return $this->belongsTo(Author::class , 'author_id');
+        return $this->belongsTo(Author::class , 'user_id');
     }
 
 }

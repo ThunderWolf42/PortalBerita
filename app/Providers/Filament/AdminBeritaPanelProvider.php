@@ -17,6 +17,11 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+// use App\Models\Tenant; // Adjust the import according to your actual tenant model
+
+// If your Tenant model is in a different namespace, update the import accordingly.
+// For example, if it's in App\Tenancy\Models\Tenant, use:
+use App\Tenancy\Models\Tenant;
 
 class AdminBeritaPanelProvider extends PanelProvider
 {
@@ -56,7 +61,6 @@ class AdminBeritaPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-
             ->plugins([
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
             ]);

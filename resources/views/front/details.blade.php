@@ -19,14 +19,14 @@
                 <p class="w-fit text-[#A3A6AE]">{{$articleNews->created_at->format('M d, Y')}} • {{$articleNews->category->name}}</p>
                 <h1 id="Title" class="font-bold text-[46px] leading-[60px] text-center two-lines">{{$articleNews->name}}</h1>
                 <div class="flex items-center justify-center gap-[70px]">
-                    <a id="Author" href="{{route('front.author', $articleNews->author->slug )}}" class="w-fit h-fit">
+                    <a id="Author" href="{{route('front.author', $articleNews->user->slug )}}" class="w-fit h-fit">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full overflow-hidden">
-                                <img src="{{Storage::url($articleNews->author->avatar)}}" class="object-cover w-full h-full"
+                                <img src="{{Storage::url($articleNews->user->avatar)}}" class="object-cover w-full h-full"
                                     alt="avatar">
                             </div>
                             <div class="flex flex-col">
-                                <p class="font-semibold text-sm leading-[21px]">{{$articleNews->author->name}}</p>
+                                <p class="font-semibold text-sm leading-[21px]">{{$articleNews->user->name}}</p>
 
                                 <p class="text-xs leading-[18px] text-[#A3A6AE]">{{$articleNews->occupation}}</p>
                             </div>
@@ -81,7 +81,7 @@
                             <div class="thumbnail-container h-[200px] relative rounded-[20px] overflow-hidden">
                                 <div
                                     class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
-                                    <p class="text-xs leading-[18px] font-bold">{{$article->author->name}}</p>
+                                    <p class="text-xs leading-[18px] font-bold">{{$article->user->name}}</p>
                                 </div>
                                 <img src="{{asset(Storage::url($article->thumbnail))}}" alt="thumbnail photo"
                                     class="w-full h-full object-cover" />
@@ -141,7 +141,7 @@
                             <div class="thumbnail-container h-[200px] relative rounded-[20px] overflow-hidden">
                                 <div
                                     class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
-                                    <p class="text-xs leading-[18px] font-bold">{{$article->author->name}}</p>
+                                    <p class="text-xs leading-[18px] font-bold">{{$article->user->name}}</p>
                                 </div>
                                 <img src="{{asset(Storage::url($article->thumbnail))}}" alt="thumbnail photo"
                                     class="w-full h-full object-cover" />
