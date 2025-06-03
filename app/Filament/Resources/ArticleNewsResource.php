@@ -77,6 +77,16 @@ class ArticleNewsResource extends Resource
 
             ]);
     }
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        if (auth()->user()->hasRole('author')) {
+            $query->where('user_id', auth()->id()); // Hanya tampilkan artikel milik author
+        }
+
+        return $query;
+    }
 
     public static function table(Table $table): Table
     {

@@ -34,10 +34,10 @@ class UserResource extends Resource
                     ->maxLength(255),
                     Select::make('roles')
                     ->relationship('roles', 'name'),
-                    -
+                
                 Forms\Components\TextInput::make('occupation')
-                    ->required()
-                    ->maxLength(255),
+        ->required()
+        ->maxLength(255),
                 Forms\Components\FileUpload::make('avatar')
                     ->image()
                     ->disk('public')
